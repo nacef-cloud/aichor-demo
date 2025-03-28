@@ -2,25 +2,36 @@ kind: AIchorManifest
 apiVersion: 0.2.2
 
 builder:
-  image: jax-demo
-  context: jax-demo # jax-demo folder
+  image: raytune-pong
+  context: raytune-pong # raytune-pong folder
   dockerfile: ./Dockerfile
 
 spec:
-  operator: jax
-  image: jax-demo
-  command: "python3 -u /app/main.py"
-  tensorboard:
+  operator: kuberay
+  image: raytune-pong
+  command: "python main.py"
+
+  debug:
+    jupyter: false
+
+  tensorboard: # optional, disabled by default
     enabled: true
+
   types:
-    Worker:
-      count: 2
+    Head:
       resources:
-        cpus: 4
-        ramRatio: 4 # = 4 cpus * 4 ramRatios = 16GB
-        shmSizeGB: 0
-        accelerators:
+        cpus: 6
+        ramRatio: 6
+        accelerators: # optional
           gpu:
             count: 1
-            type: gpu
             product: NVIDIA-H100-80GB-HBM3
+            type: gpu
+
+    Workers:
+      - name: cpu-workers
+        count: 5
+        resources:
+          cpus: 6
+          ramRatio: 2
+          shmSizeGB: 0
