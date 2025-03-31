@@ -37,5 +37,5 @@ spec:
           gpu:
             count: 1
             type: gpu
-            product: Quadro-RTX-4000
+            product: NVIDIA-H100-80GB-HBM3
 
