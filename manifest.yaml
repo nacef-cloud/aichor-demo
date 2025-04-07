@@ -25,7 +25,7 @@ spec:
         accelerators: # optional
           gpu:
             count: 1
-            product: t4
+            product: T4
             type: gpu
 
     Workers:
