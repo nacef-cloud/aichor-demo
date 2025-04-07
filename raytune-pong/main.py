@@ -4,8 +4,8 @@ import ray
 from ray import tune, train
 
 if __name__ == "__main__":
-    fs = pyarrow.fs.S3FileSystem(endpoint_override=os.environ["AWS_ENDPOINT_URL"])
-    tensorboard_path = os.getenv('AICHOR_TENSORBOARD_PATH')[5:] # Get path 
+    # fs = pyarrow.fs.S3FileSystem(endpoint_override=os.environ["AWS_ENDPOINT_URL"])
+    # tensorboard_path = os.getenv('AICHOR_TENSORBOARD_PATH')[5:] # Get path 
 
     # ray.init(local_mode=True)
     ray.init(address=os.environ.get("RAY_ADDRESS", "auto"))
@@ -50,8 +50,8 @@ if __name__ == "__main__":
                 "env_runners/episode_return_mean": 18,
                 # "timesteps_total": 5000000
             },
-            storage_filesystem=fs,
-            storage_path=tensorboard_path,
+            # storage_filesystem=fs,
+            # storage_path=tensorboard_path,
         ),
     )
     results = tuner.fit()
