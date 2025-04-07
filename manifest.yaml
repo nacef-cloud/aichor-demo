@@ -24,8 +24,8 @@ spec:
         ramRatio: 6
         accelerators: # optional
           gpu:
-            count: 0
-            product: NVIDIA-A100-SXM4-40GB
+            count: 1
+            product: t4
             type: gpu
 
     Workers:

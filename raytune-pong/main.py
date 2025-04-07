@@ -39,7 +39,7 @@ if __name__ == "__main__":
             "num_envs_per_worker": 8,
             "batch_mode": "truncate_episodes",
             "observation_filter": "NoFilter",
-            "num_gpus": 0,
+            "num_gpus": 1,
             "model": {
                 "dim": 42,
                 "vf_share_layers": True
