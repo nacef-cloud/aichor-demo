@@ -24,8 +24,8 @@ spec:
         ramRatio: 6
         accelerators: # optional
           gpu:
-            count: 1
-            product: NVIDIA-H100-80GB-HBM3
+            count: 0
+            product: NVIDIA-A100-SXM4-40GB
             type: gpu
 
     Workers:
